@@ -1,6 +1,6 @@
+## sort 사용 시간초과풀이
 import sys
 input = sys.stdin.readline
-import heapq
 
 cards = []
 results = 0
@@ -11,14 +11,18 @@ arr = []
 for _ in range(n):
     arr.append(int(input()))
 
-heapq.heapify(arr)
-
 if n == 1:
     print(0)
     
 else:
     while len(arr) > 1:
-        plus = heapq.heappop(arr) + heapq.heappop(arr)
+        arr.sort()
+        plus = arr[0] + arr[1]
         results += plus
-        heapq.heappush(arr,plus)
+        
+        del arr[0]
+        del arr[0]
+        arr.append(plus)
+
     print(results)
+    
