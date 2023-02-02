@@ -7,6 +7,7 @@ arr.sort()
 
 target = 1
 
+
 for chu in arr:
     if target < chu:
         break

@@ -9,6 +9,7 @@ tab = []
 result = 0
 for i in range(len(arr)):
         
+        
     if len(tab) < n :
         if arr[i] in tab:
             continue
