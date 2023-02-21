@@ -16,6 +16,3 @@ for i in range(n):
 
 print(*answer)
 ## 1시간 풀이 o
-
-
-
