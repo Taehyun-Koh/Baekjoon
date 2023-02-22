@@ -1,5 +1,6 @@
 import sys
 input = sys.stdin.readline
+sys.setrecursionlimit(10000)
 
 def dfs(x,y):
     dx = [1,-1,0,0]
@@ -13,18 +14,15 @@ def dfs(x,y):
             if graph[nx][ny] == 0:
                 graph[nx][ny] = 1
                 dfs(nx,ny)
-        
 
-n,m = map(int,input().split(' '))
-graph = []
-for i in range(n):
-    graph.append(list(map(int,input().strip())))
-    
-result = 0
+n,m = map(int,input().split())
+graph = [list(map(int,input().strip())) for _ in range(n)]
 
+cnt = 0
 for i in range(n):
     for j in range(m):
         if graph[i][j] == 0:
-            result += 1
+            cnt += 1
             dfs(i,j)
-print(result)
+
+print(cnt)
