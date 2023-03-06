@@ -1,20 +1,19 @@
 import sys
-# dfs 탐색
-def dfs(v):
-    # 한줄씩 비교
+input = sys.stdin.readline
+sys.setrecursionlimit(10000)
+
+def dfs(x):
     for i in range(n):
-        if check[i] == 0 and graph[v][i] == 1:
-            check[i] = 1
+        if visited[i] == 0 and graph[x][i] == 1:
+            visited[i] = 1
             dfs(i)
 
+n = int(input())
+graph = [list(map(int,input().split())) for _ in range(n)]
 
-n = int(sys.stdin.readline())
-graph = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
-
-for x in range(n):
-    # 체크 리스트를 초기화하여 수행
-    check = [0 for _ in range(n)]
-    dfs(x)
-    print(*check) # 리스트의 경우에는 *기호를 넣어서 각각의 값을 출력할 수 있다.
+for i in range(n):
+    visited = [0] * n
+    dfs(i)
+    print(*visited)
     
 # 3시간 풀이o
