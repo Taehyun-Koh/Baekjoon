@@ -1,7 +1,6 @@
 import sys
 sys.setrecursionlimit(10000)
-    
-#풀이o
+
 def dfs(x,y):
     dx = [1,-1,0,0]
     dy = [0,0,-1,1]
@@ -33,5 +32,3 @@ for _ in range(t):
                 dfs(i,j)
                 result += 1
     print(result)
-        
-    
