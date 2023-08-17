@@ -23,7 +23,6 @@ public class Main {
         for (int i=0; i<lenb; i++){
             B[i] = Integer.parseInt(st.nextToken());
         }
-ㅇㄴ
 
 
     }
