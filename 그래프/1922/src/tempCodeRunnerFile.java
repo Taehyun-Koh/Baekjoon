@@ -1,2 +1,0 @@
-
-        edgeList = new ArrayList<>();
