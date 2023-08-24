@@ -5,42 +5,57 @@ import java.io.*;
 public class p9663 {
     static int N;
     static int ans;
-    static int[] map;
+    static int[][] visited;
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         N = Integer.parseInt(br.readLine());
         ans = 0;
-        map = new int[N];
+        visited = new int[N][N];
         NQueen(0);
         System.out.println(ans);
 
     }
+    public static void NQueen(int cnt){
 
-    public static void NQueen(int depth){
-        if (depth == N) {
+
+        if (cnt == N){
+            
             ans++;
+
             return;
         }
 
         for (int i = 0; i<N; i++){
-            map[depth] = i;
+            if(visited[i][cnt] == 0){
 
-            if (Possibility(depth)){
-                NQueen(depth+1);
+                for (int j =cnt; j<N; j++){
+                    int diff = j-cnt;
+                    if (i-diff >=0){
+                        visited[i-diff][j] += 1;
+                    }
+                    if (i+diff <N) {
+                        visited[i+diff][j] += 1;
+                    }
+                    visited[i][j] += 1;
+                }
+
+                NQueen(cnt + 1);
+                for (int j =cnt; j<N; j++){
+                    int diff = j-cnt;
+                    if (i-diff >=0){
+                        visited[i-diff][j] -= 1;
+                    }
+                    
+                    if (i+diff <N) {
+                        visited[i+diff][j] -= 1;
+                    }
+                    visited[i][j] -= 1;
+                }
             }
+
         }
     }
 
-    public static boolean Possibility(int col){
 
-        for (int i = 0; i < col; i++){
-            if (map[col] == map[i]) return false;
-
-            else if (Math.abs(col-i) == Math.abs(map[col] - map[i])){
-                return false;
-            }
-        }
-        return true;
-    }
 }
