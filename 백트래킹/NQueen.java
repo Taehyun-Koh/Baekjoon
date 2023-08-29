@@ -1,6 +1,8 @@
 package 백트래킹;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
  
 public class NQueen {
  
@@ -8,10 +10,10 @@ public class NQueen {
 	public static int N;
 	public static int count = 0;
  
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException{
  
-		Scanner in = new Scanner(System.in);
-		N = in.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		N = Integer.parseInt(br.readLine());
 		arr = new int[N];
  
 		nQueen(0);
