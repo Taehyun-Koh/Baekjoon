@@ -41,3 +41,4 @@ if getdp(N,M) < K:
 else:
     getRes(N,M,K)    
     print(res)
+    
